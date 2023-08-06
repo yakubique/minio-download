@@ -13,4 +13,4 @@ if [[ "$YA_RECURSIVE" == "true" ]]; then
 fi
 
 mc alias set ${insecure_option:+"$insecure_option"} target "$YA_ENDPOINT" "$YA_ACCESS_KEY" "$YA_SECRET_KEY"
-mc ${insecure_option:+"$insecure_option"} cp ${recursive_option:+"$recursive_option"} "target/$2" $1
+mc ${insecure_option:+"$insecure_option"} cp ${recursive_option:+"$recursive_option"} "target/$1" $2
