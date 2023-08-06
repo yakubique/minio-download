@@ -1,0 +1,46 @@
+name: Yet another MinIO Download
+description: Download file(s) from MinIO instance (self-hosted as well)
+author: "Vladimir <opa_oz> Levin"
+branding:
+  icon: download-cloud
+  color: purple
+inputs:
+  endpoint:
+    description: MinIO endpoint (use `insecure=true` for HTTP-only)
+    required: true
+  access_key:
+    description: MinIO access key
+    required: true
+  secret_key:
+    description: MinIO secret key
+    required: true
+  bucket:
+    description: Target bucket to download file from
+    required: true
+  source:
+    description: File in MinIO's bucket to download (with a leading slash, use `recursive=true` to download directory)
+    required: true
+  target:
+    description: Local path to download to (default='./')
+    required: false
+    default: './'
+  insecure:
+    description: Disables TLS/SSL certificate verification. Allows TLS connectivity to servers with invalid certificates.
+    required: false
+    default: 'false'
+  recursive:
+    description: If you specify a directory, you must also set `recursive=true` to recursively copy the contents of that directory. If you omit the `recursive` argument, action only copies objects in the top level of the specified directory.
+    required: false
+    default: 'false'
+runs:
+  using: docker
+  image: Dockerfile
+  env:
+    YA_ENDPOINT: "${{ inputs.endpoint }}"
+    YA_ACCESS_KEY: "${{ inputs.access_key }}"
+    YA_SECRET_KEY: "${{ inputs.secret_key }}"
+    YA_INSECURE: "${{ inputs.insecure }}"
+    YA_RECURSIVE: "${{ inputs.recursive }}"
+  args:
+    - "${{ inputs.source }}"
+    - "${{ inputs.bucket }}${{ inputs.target }}"
