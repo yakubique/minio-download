@@ -9,7 +9,7 @@ Runs [minio client](https://min.io/docs/minio/linux/reference/minio-mc.html) to 
 1. Download a file
 ```yaml
 - name: Download from MinIO
-  uses: yakubique/minio-download@v1.0.0
+  uses: yakubique/minio-download@v1.1
   with:
     endpoint: ${{ secrets.MINIO_ENDPOINT }}
     access_key: ${{ secrets.MINIO_ACCESS_KEY }}
@@ -23,7 +23,7 @@ Runs [minio client](https://min.io/docs/minio/linux/reference/minio-mc.html) to 
 2. Download a directory
 ```yaml
 - name: Download a directory to MinIO
-  uses: yakubique/minio-download@v1.0.0
+  uses: yakubique/minio-download@v1.1
   with:
     endpoint: ${{ secrets.MINIO_ENDPOINT }}
     access_key: ${{ secrets.MINIO_ACCESS_KEY }}
@@ -39,7 +39,7 @@ Runs [minio client](https://min.io/docs/minio/linux/reference/minio-mc.html) to 
 3. Download from the insecure MinIO instance (_http-only_)
 ```yaml
 - name: Download from MinIO
-  uses: yakubique/minio-download@v1.0.0
+  uses: yakubique/minio-download@v1.1
   with:
     endpoint: ${{ secrets.MINIO_ENDPOINT }}
     access_key: ${{ secrets.MINIO_ACCESS_KEY }}
