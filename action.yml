@@ -42,5 +42,5 @@ runs:
     YA_INSECURE: "${{ inputs.insecure }}"
     YA_RECURSIVE: "${{ inputs.recursive }}"
   args:
-    - "${{ inputs.source }}"
-    - "${{ inputs.bucket }}${{ inputs.target }}"
+    - "${{ inputs.bucket }}${{ inputs.source }}"
+    - "${{ inputs.target }}"
